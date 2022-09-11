@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<%- include('../partials/head.ejs') %>
+</head>
+<body>
+    <header>
+        <%- include('../partials/header.ejs') %>
+    </header>
+
+    <h1>
+        Gallery Index
+    </h1>
+    <a href="/gallery/new">Add Gallery</a> <br/>
+    <% for (let i = 0; i < galleries.length; i++) { %>
+        Gallery Name: <%=galleries[i].galleryName%> <br/>
+        <a href="/gallery/<%=galleries[i]._id%>">
+            <img src=<%=galleries[i].coverImage%>> <br/>
+        </a>
+        Gallery Description: <%=galleries[i].galleryDescription%> <br/>
+        <!-- Gallery Images: <%=galleries[i].galleryImages%> <br/> -->
+   <% } %>
+
+</body>
+</html>

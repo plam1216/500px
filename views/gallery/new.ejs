@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<%- include('../partials/head.ejs') %>
+</head>
+<body>
+    <header>
+        <%- include('../partials/header.ejs') %>
+    </header>
+
+    gallery new
+    <form action="/gallery" method="POST">
+        Gallery Name: <input type="text" name="galleryName">
+        Cover Image: <input type="text" name="coverImage">
+        Gallery Description: <input type="text" name="galleryDescription">
+        <input type="submit" value="Submit Gallery">
+    </form>
+
+</body>
+</html>

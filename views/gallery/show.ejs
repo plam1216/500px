@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<%- include('../partials/head.ejs') %>
+</head>
+<body>
+    <header>
+        <%- include('../partials/header.ejs') %>
+    </header>
+
+    Show a Gallery
+    <a href="">Add a Picture to Gallery</a>
+    
+    <h4>cover img</h4>
+    <img src="<%=gallery.coverImage%>" alt="">
+
+    <p>images in the gallery</p>
+
+    <form action="/gallery/<%=gallery._id%>?_method=DELETE" method="POST">
+        <input type="submit" value="DELETE GALLERY">
+    </form>
+    <!-- show each image inside the gallery array -->
+    <!-- Gallery Name: <%=gallery.name%>
+    <img src="<%=gallery.coverImage%>" alt="">
+    Gallery Description: <%=gallery.description%> -->
+</body>
+</html>
