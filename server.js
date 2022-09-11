@@ -6,6 +6,8 @@ const mongoose = require('mongoose')
 const methodOverride = require('method-override')
 require('dotenv').config()
 
+const galleryController = require('./controllers/gallery.js')
+
 const PORT = process.env.PORT
 const DATABASE_URL = process.env.DATABASE_URL
 
@@ -23,10 +25,11 @@ db.on('disconnected', () => console.log('mongodb disconnected'))
 // MIDDLEWARE
 app.use(methodOverride('_method'))
 app.use(express.urlencoded({extended: true}))
+app.use('/gallery', galleryController)
 
-// TEST ROUTE
+// INDEX ROUTE
 app.get('/', (req, res) => {
-    res.send('working!')
+    res.render('index.ejs')
 })
 
 // LISTEN
