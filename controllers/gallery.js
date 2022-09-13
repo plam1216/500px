@@ -27,15 +27,13 @@ galleryRouter.delete('/:id', (req, res) => {
 // UPDATE
 galleryRouter.put('/:id', (req, res) => {
     Gallery.findByIdAndUpdate(req.params.id, req.body, {new: true}, () => (
-        res.redirect('/gallery')
+        res.redirect(`/gallery/${req.params.id}`)
     ))
 })
 
 // CREATE
 galleryRouter.post('/', (req, res) => {
-    console.log(req.body)
-    console.log(req.body.galleryName)
-    console.log(req.body.coverImage)
+    // console.log(req.body)
     Gallery.create(req.body, (err, createdGallery) => {
         res.redirect('/gallery')
     })
@@ -54,7 +52,7 @@ galleryRouter.get('/:id/edit', (req, res) => {
 galleryRouter.get('/:id', (req, res) => {
     Gallery.findById(req.params.id, (err, foundGallery) => {
         res.render('gallery/show.ejs', {
-            gallery: foundGallery
+            gallery: foundGallery,
         })
     })
 })

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<%- include('../partials/head.ejs') %>
+</head>
+<body>
+    <header>
+        <%- include('../partials/header.ejs') %>
+    </header>
+
+    <form action="/gallery/<%=gallery._id%>/image/<%=galleryImage._id%>?_method=PUT" method="POST">
+        <input type="text" name="imageName" value="<%=galleryImage.imageName%>">
+        <input type="text" name="imageURL" value="<%=galleryImage.imageURL%>">
+        <input type="text" name="imageDescription" value="<%=galleryImage.imageDescription%>">
+        <input type="submit" value="Submit Edit">
+    </form>
+
+</body>
+</html>
