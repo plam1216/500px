@@ -3,14 +3,13 @@ const express = require('express')
 const app = express()
 const mongoose = require('mongoose')
 
-const Gallery = require('./models/gallery.js')
-
 const methodOverride = require('method-override')
 
 require('dotenv').config()
 
-const galleryController = require('./controllers/gallery.js')
+const albumController = require('./controllers/album.js')
 const imageController = require('./controllers/image.js')
+const commentsController = require('./controllers/comments.js')
 
 const PORT = process.env.PORT
 const DATABASE_URL = process.env.DATABASE_URL
@@ -30,8 +29,9 @@ db.on('disconnected', () => console.log('mongodb disconnected'))
 app.use(methodOverride('_method'))
 app.use(express.urlencoded({extended: true}))
 app.use(express.static('public'))
-app.use('/gallery', galleryController)
+app.use('/album', albumController)
 app.use('/', imageController)
+app.use('/', commentsController)
 
 // INDEX ROUTE
 app.get('/', (req, res) => {
