@@ -8,13 +8,21 @@
         <%- include('../partials/header.ejs') %>
     </header>
 
-    gallery new
-    <form action="/gallery" method="POST">
-        Gallery Name: <input type="text" name="galleryName">
-        Cover Image: <input type="text" name="coverImage">
-        Gallery Description: <input type="text" name="galleryDescription">
-        <input type="submit" value="Submit Gallery">
-    </form>
+    <h2 class="gal-edit-add">Add a New Gallery</h2>
+    
+    <div class="container center-align" style="width: 30%">
+      <form action="/gallery" method="POST">
+        <label>Gallery Name (max 20 char.)</label>
+        <input type="text" maxlength="20" name="galleryName">
+
+        <label>Gallery Cover URL (.jpg)</label>
+        <input type="text" name="coverImage" value=".jpg">
+        
+        <label>Gallery Description (max 100 char.)</label>
+        <textarea class="materialize-textarea" maxlength="100" name="galleryDescription"></textarea>
+
+        <input class="btn waves-light blue-grey darken-2" type="submit" value="Submit Gallery">
+      </form>
 
 </body>
 </html>

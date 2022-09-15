@@ -3,23 +3,32 @@
 <head>
 <%- include('../partials/head.ejs') %>
 </head>
-<body>
-    <header>
-        <%- include('../partials/header.ejs') %>
-    </header>
-
-    <h1>
-        Gallery Index
-    </h1>
-    <a href="/gallery/new">Add Gallery</a> <br/>
-    <% for (let i = 0; i < galleries.length; i++) { %>
-        Gallery Name: <%=galleries[i].galleryName%> <br/>
-        <a href="/gallery/<%=galleries[i]._id%>">
-            <img src=<%=galleries[i].coverImage%>> <br/>
-        </a>
-        Gallery Description: <%=galleries[i].galleryDescription%> <br/>
-        <!-- Gallery Images: <%=galleries[i].galleryImages%> <br/> -->
-   <% } %>
-
-</body>
+    <body>
+        <header>
+            <%- include('../partials/header.ejs') %>
+        </header>
+        <div class="container center-align">
+            <h2>All My Galleries</h2>
+            <div class="row">
+                <!-- Show Cover Image of Each Gallery -->
+                <% for (let i = 0; i < galleries.length; i++) { %>
+                    <!-- Shows which Cover Image is being Hovered over -->
+                    <div class="col s4 hoverable">
+                        <div class="card">
+                            <div class="card-image">
+                                <a href="/gallery/<%=galleries[i]._id%>">
+                                    <img class="responsive-img" src=<%=galleries[i].coverImage%>>
+                                </a>
+                            </div>
+                            <div class="card-content grey lighten-2">
+                                <p class="flow-text">
+                                    <%=galleries[i].galleryName%> </br>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                <% } %>
+            </div>
+        </div>
+    </body>
 </html>

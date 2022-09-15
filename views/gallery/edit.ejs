@@ -8,12 +8,22 @@
         <%- include('../partials/header.ejs') %>
     </header>
 
-    <form action="/gallery/<%=gallery._id%>?_method=PUT" method="POST">
-        <input type="text" name="galleryName" value="<%=gallery.galleryName%>">
-        <input type="text" name="coverImage" value="<%=gallery.coverImage%>">
-        <input type="text" name="galleryDescription" value="<%=gallery.galleryDescription%>">
-        <input type="submit" value="Submit Edit">
-    </form>
+    <h2 class="gal-edit-add">Edit Cover Image</h2>
+    
+    <div class="container center-align" style="width: 30%; padding-bottom: 125px;">
+        <img class="edit-img" src="<%=gallery.coverImage%>" style="width: 80%">
+        <form action="/gallery/<%=gallery._id%>?_method=PUT" method="POST">
+            <label>Update Gallery Name (max 20 char.)</label>
+            <input type="text" maxlength="20" name="galleryName" value="<%=gallery.galleryName%>">
 
+            <label>Update Cover Image Link (.jpg)</label> <br/>
+            <input type="text" name="coverImage" value="<%=gallery.coverImage%>">
+
+            <label>Update Gallery Description (max 150 char.)</label>
+            <textarea class="materialize-textarea" maxlength="100" name="galleryDescription"><%=gallery.galleryDescription%></textarea>
+
+            <input class="btn waves-light blue-grey darken-2" type="submit" value="Submit Edit">
+        </form>
+    </div>
 </body>
 </html>

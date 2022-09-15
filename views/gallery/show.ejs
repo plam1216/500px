@@ -7,21 +7,90 @@
     <header>
         <%- include('../partials/header.ejs') %>
     </header>
+    <div id="show-one" class="container center-align">
+        <h2>
+            <%=gallery.galleryName%>
+        </h2>
 
-    Show a Gallery
-    <a href="">Add a Picture to Gallery</a>
-    
-    <h4>cover img</h4>
-    <img src="<%=gallery.coverImage%>" alt="">
+        <!-- COVER IMAGE -->
+        <div class="img-container">
+            <img id="cover-img" class="cover-img responsive-img" src="<%=gallery.coverImage%>" alt="coverImage">
+            <!-- OVERLAY SHOWING DESCRIPTION, EDIT, AND DELETE BUTTONS -->
+            <div class="overlay">
+                <div class="desc-container">
+                    <p class="flow-text">
+                        <%=gallery.galleryDescription%>
+                    </p>
+                    
+                    <a class="edit-btn" href="/gallery/<%=gallery._id%>/edit">
+                        <input class="btn waves-light blue-grey darken-4" type="submit" value="EDIT COVER">
+                    </a>
 
-    <p>images in the gallery</p>
+                    <form class="delete-btn" action="/gallery/<%=gallery._id%>?_method=DELETE" method="POST">
+                        <input class="btn waves-light blue-grey darken-4" type="submit" value="DELETE GALLERY">
+                    </form>
+                </div>
+            </div>
+        </div>
+        
 
-    <form action="/gallery/<%=gallery._id%>?_method=DELETE" method="POST">
-        <input type="submit" value="DELETE GALLERY">
-    </form>
-    <!-- show each image inside the gallery array -->
-    <!-- Gallery Name: <%=gallery.name%>
-    <img src="<%=gallery.coverImage%>" alt="">
-    Gallery Description: <%=gallery.description%> -->
+        <!-- CLICK BUTTON FOR FORM TO APPEAR -->
+        <label for="toggle-img-form" class="toggle btn-floating btn-medium waves-effect waves-light blue-grey darken-4" style="display: block; text-align: left;">
+            <!-- <h4>Add an Image</h4> -->
+            <i class="material-icons">add</i>
+        </label>
+        <input type="checkbox" id="toggle-img-form" class="hide-input">
+        <!-- ADD IMAGE TO GALLERY FORM -->
+        <div class="form-center" id="add-img-form">
+            <form action="/gallery/<%=gallery._id%>/image" method="POST" class="col s12">
+                <p style="margin: 0 0 10px 0;">
+                    Add an Image
+                </p>
+                <div class="row">
+                        <label>Name (max 20 char.)</label> 
+                        <input type="text" maxlength="20" name="imageName">
+                </div>
+                <div class="row">
+                        <label>Image URL (.jpg)</label>
+                        <input type="text" name="imageURL" value=".jpg">
+                </div>
+                <!-- <div class="row">
+                        <label>Image Description (max 100 char.)</label>
+                        <textarea class="materialize-textarea" maxlength="100" name="imageDescription"></textarea>
+                </div> -->
+                
+                <input class="btn waves-light blue-grey darken-2" type="submit" value="Submit Image">
+            </form>            
+        </div>
+    </div>
+        <br/>
+
+    <!-- /// IMAGE GALLERY /// -->
+    <div class="container center-align">
+        <div class="row">
+            <% for(let i = 0; i < gallery.galleryImages.length; i++) { %>
+                <div class="col s4">
+                    <div class="card">
+                        <div class="card-image">
+                            <img src="<%=gallery.galleryImages[i].imageURL%>">   
+                        </div>
+
+                        <!-- Image Name: <%=gallery.galleryImages[i].imageName%> -->
+                        <!-- Image Desc: <%=gallery.galleryImages[i].imageDescription%> -->
+
+                        <!-- EDIT ONE IMAGE -->
+                        <a class="edit-btn" href="/gallery/<%=gallery._id%>/image/<%=gallery.galleryImages[i]._id%>/edit">
+                            <input class="btn waves-light blue-grey darken-2" type="submit" value="EDIT IMAGE">
+                        </a>
+
+                        <!-- DELETE ONE IMAGE -->
+                        <form class="delete-btn" action="/gallery/<%=gallery._id%>/image/<%=gallery.galleryImages[i]._id%>?_method=DELETE" method="POST">
+                            <input class="btn waves-light blue-grey darken-2" type="submit" value="DELETE IMAGE">
+                        </form>
+                    </div>
+                </div>
+            <% } %>
+        </div>
+    </div>
 </body>
 </html>
