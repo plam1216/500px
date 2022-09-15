@@ -1,7 +1,7 @@
 
 # 500px
 
-#### A CRUD application that allows users to create, edit, and delete photo albums. A comment section appears for each image inside the photo album allowing users to share their thoughts on photos!
+#### A CRUD application that allows users to create, edit, and delete photo albums. A comment section appears for each image inside the photo album allowing users to share their thoughts on each photo!
 
 <img src="./images/site/enter-site.png" alt="enter-site"/>
 <img src="./images/site/my-albums-empty.png" alt=""/>
