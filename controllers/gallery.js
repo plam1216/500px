@@ -33,7 +33,6 @@ galleryRouter.put('/:id', (req, res) => {
 
 // CREATE
 galleryRouter.post('/', (req, res) => {
-    // console.log(req.body)
     Gallery.create(req.body, (err, createdGallery) => {
         res.redirect('/gallery')
     })
