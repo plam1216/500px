@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<%- include('../partials/head.ejs') %>
+</head>
+    <body>
+        <header>
+            <%- include('../partials/header.ejs') %>
+        </header>
+        <div class="container center-align">
+            
+            <h2> 
+                <a href="/album/<%=album._id%>" class="btn btn-floating btn-small waves-effect waves-light" style="float: left; background-color: var(--main-color);">
+                    <i class="material-icons">arrow_back</i>
+                </a>
+                <%=image.imageName%> 
+            </h2>
+
+            <div class="row">
+                <!-- Show Cover Image of Each Album -->
+                <!-- Shows which Cover Image is being Hovered over -->
+                <div class="col s12 m5">
+                    <div class="card no-scale">
+                        <div class="card-image">
+                            <img class="responsive-img" src=<%=image.imageURL%>>
+                        </div>
+                        <div class="card-content grey lighten-2" style="padding: 0">
+                            <a class="edit-btn" href="/album/<%=album._id%>/image/<%=image._id%>/edit">
+                                <input class="btn waves-light blue-grey darken-2" type="submit" value="EDIT IMAGE">
+                            </a>
+
+                            <!-- DELETE ONE IMAGE -->
+                            <form class="delete-btn" action="/album/<%=album._id%>/image/<%=image._id%>?_method=DELETE" method="POST">
+                                <input class="btn waves-light blue-grey darken-2" type="submit" value="DELETE IMAGE">
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="col s12 m7">
+                    <div class="card no-scale">
+                        <div class="card-content grey lighten-2" style="padding: 5px">
+                            <p class="flow-text" style="font-weight: 700">
+                                Comments
+                            </p>
+                        </div>
+                        <div class="card-panel" style="height: 413px; margin: 0; padding: 0;">
+                            <!-- Add a Comment -->
+                            <form class="col s12" action="/album/<%=album._id%>/image/<%=image._id%>" method="POST">
+                                <div class="row" style="margin: 0;">
+                                  <div class="input-field col s12">
+                                    <label for="input_text">Comment (max 30 char.)</label>
+                                    <input id="input_text" type="text" maxlength="30" name="comment">
+                                    <input class="btn waves-light blue-grey darken-2" type="submit" value="Add Comment">
+                                  </div>
+                                </div>
+                            </form>
+
+                            <!-- Comments -->
+                            <ul class="collection" style="margin:0; text-align: start; height: 300px; overflow: hidden; overflow-y: scroll;">
+                                <% for (let i = 0; i < image.comments.length; i++) { %>
+                                        <li class="collection-item" style="padding: 0px 20px;word-wrap: break-word; line-height: 3rem; position: relative; display: block;">
+                                                <%=image.comments[i]%>
+
+                                                <!-- Delete Comment -->
+                                                <form class="delete-btn" action="/album/<%=album._id%>/image/<%=image._id%>/comments?_method=DELETE" method="POST">
+                                                        <input class="btn-small waves-light blue-grey darken-2" type="submit" value="DELETE" style="margin: 5px 20px 0 0; position: absolute; top: 0; right: 0;">
+                                                </form>
+                                        </li>
+                                <% } %>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

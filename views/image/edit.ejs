@@ -8,18 +8,24 @@
         <%- include('../partials/header.ejs') %>
     </header>
 
-    <h2 class="gal-edit-add">Edit An Image</h2>
+    <h2 class="gal-edit-add-h2">Edit An Image</h2>
+    
+    <!-- Edit Image Form -->
+    <div class="container center-align" style="width: 70%; padding-bottom: 125px;">
+        <img class="edit-img" src="<%=image.imageURL%>" style="width: 70%">
+        <form action="/album/<%=album._id%>/image/<%=image._id%>?_method=PUT" method="POST">
+            <div class="input-field">
+                <label>Update Image Name (max 20 char.)</label>
+                <input type="text" maxlength="20" name="imageName" value="<%=image.imageName%>">
+            </div>
 
-    <div class="container center-align" style="width: 30%; padding-bottom: 125px;">
-        <img class="edit-img" src="<%=galleryImage.imageURL%>" style="width: 80%">
-        <form action="/gallery/<%=gallery._id%>/image/<%=galleryImage._id%>?_method=PUT" method="POST">
-            <label>Update Image Name (max 20 char.)</label>
-            <input type="text" maxlength="20" name="imageName" value="<%=galleryImage.imageName%>">
-
-            <label>Update Image Link (.jpg)</label> <br/>
-            <input type="text" name="imageURL" value="<%=galleryImage.imageURL%>">
+            <div class="input-field">
+                <label>Update Image Link (.jpg)</label>
+                <input type="text" name="imageURL" value="<%=image.imageURL%>">
+            </div>
 
             <input class="btn waves-light blue-grey darken-2" type="submit" value="Submit Edit">
+
         </form>
     </div>
 </body>
