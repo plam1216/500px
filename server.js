@@ -3,7 +3,10 @@ const express = require('express')
 const app = express()
 const mongoose = require('mongoose')
 
+const Gallery = require('./models/gallery.js')
+
 const methodOverride = require('method-override')
+
 require('dotenv').config()
 
 const galleryController = require('./controllers/gallery.js')
