@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<%- include('../partials/head.ejs') %>
+</head>
+<body>
+    <header>
+        <%- include('../partials/header.ejs') %>
+    </header>
+
+    <h2 class="gal-edit-add-h2">Add Album</h2>
+    
+    <!-- Create New Album Form -->
+    <div class="container center-align" style="width: 70%">
+      <form action="/album" method="POST">
+        <div class="input-field">
+          <label>Album Name (max 20 char.)</label>
+          <input type="text" maxlength="20" name="albumName" placeholder="Name">
+        </div>
+
+        <div class="input-field">
+          <label>Album Cover URL (.jpg)</label>
+          <input type="text" name="coverImage" value=".jpg" placeholder="URL">
+        </div>
+
+        <div class="input-field">
+          <label>Album Description (max 100 char.)</label>
+          <textarea class="materialize-textarea" maxlength="100" name="albumDescription" placeholder="Description"></textarea>
+        </div>
+
+        <input class="btn waves-light blue-grey darken-2" type="submit" value="Submit album">
+      </form>
+
+</body>
+</html>

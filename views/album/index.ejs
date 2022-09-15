@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<%- include('../partials/head.ejs') %>
+</head>
+<body>
+    <header>
+        <%- include('../partials/header.ejs') %>
+    </header>
+    
+    <div class="container center-align">
+        
+        <h2> My Photo Albums</h2>
+
+        <div class="row">
+            <% if(albums.length === 0) {  %>
+                <p style="margin-top: 200px; font-size: 1rem;">
+                    You have no Photo Albums!
+                </p>
+            <%} %>
+
+            <!-- Show Cover Image of Each Album -->
+            <% for (let i = 0; i < albums.length; i++) { %>
+                
+                <!-- Shows which Cover Image is being Hovered over -->
+                <div class="col s12 m4 hoverable">
+                    <div class="card">
+                        <div class="card-image">
+                            <a href="/album/<%=albums[i]._id%>">
+                                <img class="responsive-img" src=<%=albums[i].coverImage%>>
+                            </a>
+                        </div>
+                        <div class="card-content grey lighten-2">
+                            <p class="flow-text">
+                                <%=albums[i].albumName%> </br>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            <% } %>
+        </div>
+    </div>
+</body>
+</html>
