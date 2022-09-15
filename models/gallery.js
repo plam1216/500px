@@ -4,7 +4,7 @@ const Schema = mongoose.Schema
 const imageSchema = new Schema({
         imageName: String,
         imageURL: {type: String, required: true},
-        imageDescription: String
+        // imageDescription: String
     }, {
         // timestamps: true -> Mongoose creates createdAt and updatedAt properties with type Date for when the document was created and last updated
         timestamps: true
@@ -13,7 +13,7 @@ const imageSchema = new Schema({
 
 const gallerySchema = new Schema({
     galleryName: String,
-    coverImage: String,
+    coverImage: {type: String, require: true},
     galleryDescription: String,
     galleryImages: [imageSchema]
     }, {
