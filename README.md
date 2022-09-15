@@ -49,7 +49,7 @@
 - [Trello](https://trello.com/b/LMywPsTV/500px)
 
 ## <a name="deployment"></a> Deployed Link
-- [Heroku](https://git.heroku.com/peter-lam-500px.git)
+- [Heroku](https://peter-lam-500px.herokuapp.com/)
 
 ## <a name="resources"></a> Resources:
 - [MDN](https://developer.mozilla.org/en-US/)
