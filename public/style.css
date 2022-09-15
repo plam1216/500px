@@ -1,0 +1,128 @@
+:root {
+    --main-color: #455a64;
+    --main-color-light: #607d8b;
+    --main-color-lighter: #90a4ae;
+}
+
+body {
+    margin-bottom: 50px;
+}
+
+h2 {
+    margin-top: 50px;
+}
+
+.container {
+    width: 95%;
+}
+
+.gal-edit-add {
+    margin: 50px 0 50px 0;
+    text-align: center;
+}
+
+/* #gal-name {
+    margin: 20px 0 20px 0;
+    text-align: center;
+} */
+
+.img-container {
+    position: relative;
+    display: inline-block;
+  }
+
+#cover-img {
+    height: 500px;
+    border: 5px solid var(--main-color-lighter);
+    opacity: 1;
+    transition: .5s ease;
+    backface-visibility: hidden;
+}
+
+.overlay {
+    transition: .5s ease;
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    text-align: center;
+    width: 80%;
+}
+
+.img-container:hover #cover-img {
+    opacity: 0.8;
+}
+
+.img-container:hover .overlay {
+    opacity: 1;
+}
+
+.desc-container {
+    background-color: var(--main-color-lighter);
+    padding: 10px 0 10px 0;
+    margin: 0 50px 0 50px;
+    border-radius: 2px;
+    word-wrap: break-word;
+    color: white;
+}
+
+.card {
+    transition:transform 0.25s ease;
+}
+
+.card:hover {
+    z-index: 1;
+    -webkit-transform:scale(1.20);
+    transform:scale(1.20);
+    /* border: solid 5px solid var(--main-color-lighter); */
+}
+
+.card-image {
+    height: 400px;
+    object-fit: cover;
+    overflow: hidden;
+}
+
+.card-image img{
+    height: 400px;
+    /* margin-top: -40px; */
+}
+
+.flow-text {
+    font-size: 1.25rem;
+    word-wrap: break-word
+;}
+
+.delete-btn {
+    display: inline-block;
+    padding: 5px;
+}
+
+.edit-btn {
+    display: inline-block;
+    padding: 5px;
+}
+
+#add-img-form {
+    /* height: 240px; */
+    transition: all 0.2s ease;
+    opacity: 1;
+    /* margin-top: 1rem; */
+    /* overflow: hidden; */
+  }
+
+.edit-img {
+margin-bottom: 50px;
+}
+
+.form-center {
+    display:flex;
+    justify-content: center;
+}
+
+input[type=checkbox].hide-input:checked + #add-img-form {
+    height: 0;
+    opacity: 0;
+  }
