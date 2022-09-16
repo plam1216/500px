@@ -4,14 +4,8 @@
 #### A CRUD application that allows users to create, edit, and delete photo albums. A comment section appears for each image inside the photo album allowing users to share their thoughts on each photo!
 
 <img src="./images/site/enter-site.png" alt="enter-site"/>
-<img src="./images/site/my-albums-empty.png" alt=""/>
-<img src="./images/site/add-album.png" alt="add-album"/>
 <img src="./images/site/my-albums.png" alt="my-albums"/>
-<img src="./images/site/one-image.png" alt="one-image"/>
-<img src="./images/site/one-image-comments.png" alt="one-image-comments"/>
 <img src="./images/site/one-image-hover.png" alt="one-image-hover"/>
-<img src="./images/site/one-image-add-toggle.png" alt="one-image-add-toggle"/>
-<img src="./images/site/one-image-description.png" alt="one-image-description"/>
 <img src="./images/site/one-image-comments-delete.png" alt="one-image-comments-delete"/>
 
 ## Table of Contents
