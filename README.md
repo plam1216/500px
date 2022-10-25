@@ -1,7 +1,10 @@
-
 # 500px
 
 #### A CRUD application that allows users to create, edit, and delete photo albums. A comment section appears for each image inside the photo album allowing users to share their thoughts on each photo!
+
+
+## <a name="deployment"></a> Deployed Link
+- [500px](https://peter-lam-500px.herokuapp.com/)
 
 <img src="./images/site/enter-site.png" alt="enter-site"/>
 <img src="./images/site/my-albums.png" alt="my-albums"/>
@@ -13,7 +16,7 @@
 - [Features](#features)
 - [Wireframe](#wireframe)
 - [Trello](#trello)
-- [Deployed App](#deployment)
+- [500px](#deployment)
 - [Resources](#resources)
 - [Future Implementations](#futureimplementations)
 
@@ -41,9 +44,6 @@
 
 ## <a name="trello"></a> Trello
 - [Trello](https://trello.com/b/LMywPsTV/500px)
-
-## <a name="deployment"></a> Deployed Link
-- [Heroku](https://peter-lam-500px.herokuapp.com/)
 
 ## <a name="resources"></a> Resources:
 - [MDN](https://developer.mozilla.org/en-US/)
